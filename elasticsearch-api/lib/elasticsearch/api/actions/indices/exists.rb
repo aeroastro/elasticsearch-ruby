@@ -28,6 +28,7 @@ module Elasticsearch
         #
         def exists(arguments={})
           raise ArgumentError, "Required argument 'index' missing" unless arguments[:index]
+          arguments[:ignore] ||= 404
 
           valid_params = [
             :ignore_indices,

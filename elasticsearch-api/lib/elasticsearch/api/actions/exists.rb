@@ -24,6 +24,7 @@ module Elasticsearch
         raise ArgumentError, "Required argument 'id' missing"    unless arguments[:id]
         raise ArgumentError, "Required argument 'index' missing" unless arguments[:index]
         arguments[:type] ||= UNDERSCORE_ALL
+        arguments[:ignore] ||= 404
 
         valid_params = [
           :parent,

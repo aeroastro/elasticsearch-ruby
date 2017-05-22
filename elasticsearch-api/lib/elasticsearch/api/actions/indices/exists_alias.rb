@@ -26,6 +26,8 @@ module Elasticsearch
         # @see http://www.elasticsearch.org/guide/reference/api/admin-indices-aliases/
         #
         def exists_alias(arguments={})
+          arguments[:ignore] ||= 404
+
           valid_params = [
             :ignore_indices,
             :ignore_unavailable,

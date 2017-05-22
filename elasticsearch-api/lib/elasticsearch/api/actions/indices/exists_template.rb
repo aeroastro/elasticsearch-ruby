@@ -15,6 +15,8 @@ module Elasticsearch
         #
         def exists_template(arguments={})
           raise ArgumentError, "Required argument 'name' missing" unless arguments[:name]
+          arguments[:ignore] ||= 404
+
           valid_params = [ :local, :master_timeout ]
 
           method = HTTP_HEAD

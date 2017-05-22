@@ -27,6 +27,8 @@ module Elasticsearch
         def exists_type(arguments={})
           raise ArgumentError, "Required argument 'index' missing" unless arguments[:index]
           raise ArgumentError, "Required argument 'type' missing" unless arguments[:type]
+          arguments[:ignore] ||= 404
+
           valid_params = [
             :ignore_indices,
             :ignore_unavailable,

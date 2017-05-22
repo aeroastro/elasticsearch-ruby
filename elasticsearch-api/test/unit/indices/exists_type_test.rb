@@ -11,7 +11,7 @@ module Elasticsearch
           subject.expects(:perform_request).with do |method, url, params, body|
             assert_equal 'HEAD', method
             assert_equal 'foo/bar', url
-            assert_equal Hash.new, params
+            assert_equal({ ignore: 404 }, params)
             assert_nil   body
             true
           end.returns(FakeResponse.new)
